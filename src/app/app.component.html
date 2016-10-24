@@ -1,0 +1,44 @@
+<h1>{{title}}</h1>
+<div class="element">
+  <div class="element-left">
+    <div class="element-bg-img"><img [src]="currentRegion.mainImage" alt="" class="img-responsive main"> </div>
+    <div class="element-left-bottom">
+      <div class="ele-strip">
+        <ul>
+          <li *ngFor="let title of menuTitles;let i = last" [ngClass]="{'anc-bor':i}" (click)="setCurrentWidgetType(title)"><a href="#">{{title}}</a></li>
+        </ul>
+      </div>
+      <div class="village">
+        <h3>Righteous indignation & like</h3>
+        <span class="line"> </span>
+        <div class="activity_box">
+          <div class="scrollbar" id="style-2">
+            <div class="activity-row" *ngFor="let region of regions | filterWidget:currentWidgetType" (click)="setCurrentRegion(region)">
+              <div class="activity-desc">
+                <h5>{{region.address}}</h5>
+                <p>{{region.t1}}</p>
+                <p>{{region.t2}}</p>
+                <h6>{{region.tel}}</h6>
+              </div>
+              <div class="activity-img">
+                <ul>
+                  <li><img [src]='region.icon1Url'  alt=""/></li>
+                  <li><img [src]='region.icon2Url'  alt=""/></li>
+                </ul>
+              </div>
+              <div class="clear"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="element-right">
+    <app-temperatur [temperatur]="currentRegion.temperatur"></app-temperatur>
+    <app-teddy-bear [teddy]="currentRegion.teddy"></app-teddy-bear>
+  </div>
+  <div class="clear"> </div>
+</div>
+<div class="copy-right">
+  <p>© 2015 Hot Weather Widget. All rights reserved | Design by  <a href="http://w3layouts.com/" target="_blank">  W3layouts </a></p>
+</div>
